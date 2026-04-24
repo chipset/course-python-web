@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Results — Flask Stats</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 60px auto; padding: 0 16px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #ddd; }
+    th { background: #f5f5f5; }
+    a { display: inline-block; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>Results</h1>
+  <p>Input: <strong>{{ numbers | join(', ') }}</strong></p>
+  <table>
+    <tr><th>Statistic</th><th>Value</th></tr>
+    <tr><td>Count</td><td>{{ results.count }}</td></tr>
+    <tr><td>Sum</td><td>{{ results.sum }}</td></tr>
+    <tr><td>Mean</td><td>{{ '%.4f' | format(results.mean) }}</td></tr>
+    <tr><td>Median</td><td>{{ results.median }}</td></tr>
+    <tr><td>Std Dev</td><td>{{ '%.4f' | format(results.stdev) }}</td></tr>
+  </table>
+  <a href="/">← Analyze another set</a>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "id": "python-web-flask",
+  "title": "Build a Python Web App with Flask",
+  "version": "1.0.0",
+  "engineVersion": ">=0.3.0",
+  "steps": [
+    {
+      "id": "install-flask",
+      "title": "Install Flask",
+      "instructions": "steps/01-install-flask/instructions.md",
+      "hints": [
+        "Create a file called requirements.txt in the workspace root.",
+        "The file should contain a single line: flask>=3.0",
+        "Run: pip install -r requirements.txt"
+      ],
+      "starter": "steps/01-install-flask/starter",
+      "validator": "steps/01-install-flask/validate.js"
+    },
+    {
+      "id": "create-app",
+      "title": "Create the Flask Application",
+      "instructions": "steps/02-create-app/instructions.md",
+      "hints": [
+        "Create app.py and import Flask from flask.",
+        "Instantiate the app with: app = Flask(__name__)",
+        "Add a route with @app.route('/') and a function that returns an HTML string."
+      ],
+      "starter": "steps/02-create-app/starter",
+      "solution": "steps/02-create-app/solution",
+      "validator": "steps/02-create-app/validate.js"
+    },
+    {
+      "id": "add-templates",
+      "title": "Add HTML Templates",
+      "instructions": "steps/03-add-templates/instructions.md",
+      "hints": [
+        "Create a templates/ folder in the workspace root.",
+        "Create templates/index.html with a form that POSTs to /analyze.",
+        "Update app.py to use render_template('index.html') instead of returning a string."
+      ],
+      "solution": "steps/03-add-templates/solution",
+      "validator": "steps/03-add-templates/validate.js"
+    },
+    {
+      "id": "add-analyze-route",
+      "title": "Handle the Form and Compute Statistics",
+      "instructions": "steps/04-add-analyze/instructions.md",
+      "hints": [
+        "Import statistics at the top of app.py.",
+        "Add @app.route('/analyze', methods=['POST']) with a function that reads request.form.get('numbers', '').",
+        "Parse the string by splitting on commas and converting each part to float."
+      ],
+      "solution": "steps/04-add-analyze/solution",
+      "validator": "steps/04-add-analyze/validate.js"
+    },
+    {
+      "id": "results-page",
+      "title": "Display Results and Handle Errors",
+      "instructions": "steps/05-results-page/instructions.md",
+      "hints": [
+        "Create templates/results.html with a <table> that shows each statistic.",
+        "Use {{ results.count }}, {{ results.mean }}, etc. to render Jinja2 variables.",
+        "Link back to the home page with <a href=\"/\">← Analyze another set</a>."
+      ],
+      "solution": "steps/05-results-page/solution",
+      "validator": "steps/05-results-page/validate.js"
+    }
+  ]
+}
